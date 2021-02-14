@@ -16,7 +16,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, unique=True,help_text="Post slug")
     author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts',help_text="Post author")
     updated_on = models.DateTimeField(auto_now= True,help_text="Post updated date")
-    image = models.ImageField(upload_to='images/',help_text="Post image")
+    image = models.ImageField(upload_to='',help_text="Post image")
     content = RichTextField(help_text="Post content")
     created_on = models.DateTimeField(auto_now_add=True,help_text="Post created date")
     status = models.IntegerField(choices=STATUS, default=0,help_text="Post status")
