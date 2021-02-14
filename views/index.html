@@ -1,0 +1,64 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<div class="container top-buffer">
+    <h1 class="header">Blog</h1>
+    <div class="row">
+        <!-- Blog Entries Column -->
+        {% for post in post_list %}
+        <div class="col-md-4 mt-3 left">
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <img class="card-image" src="{{ post.image }}" width="300" height="200">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} </p>
+                    <p class="card-text">{{post.content|slice:":200"|safe }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">View &rarr;</a>
+                </div>
+            </div>            
+        </div>
+        {% endfor %}        
+    </div>
+</div>
+
+<div class="container top-buffer">    
+    <div class="row">
+        <!-- Blog Entries Column -->        
+        <div class="col-md-4 mt-3 left">            
+            <button type="button" class="btn btn-primary btn-lg btn-block">Primary</button>
+        </div>        
+        <div class="col-md-8 mt-3 left">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...</p>
+        </div>
+    </div>
+</div>
+
+<div class="container top-buffer">    
+    <div class="row">
+        <!-- Blog Entries Column -->        
+        <div class="col-md-3 ">            
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">                
+                <label class="custom-control-label" for="customCheck">Check this custom checkbox</label>
+            </div>
+            <label for="customRange">Custom range</label>
+            <input type="range" class="custom-range" id="customRange" name="points1">
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+                <label class="custom-control-label" for="customRadio">Custom radio</label>
+            </div>
+        </div>        
+        <div class="col-md-3">
+            <img src="../images/image.png" width="250" height="150">
+        </div>
+        <div class="col-md-3">
+            <img src="../images/image.png"  width="250" height="150">
+        </div>
+        <div class="col-md-3">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
